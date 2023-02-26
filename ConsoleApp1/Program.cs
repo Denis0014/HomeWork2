@@ -101,6 +101,24 @@ namespace HomeWork2
             }
             return (MaxRow, MaxSum);
         }
+        /// <summary>
+        /// Возвращает максимальное значение среди всех средних значений строк массива
+        /// </summary>
+        /// <param name="arr">Исходный ступенчатый массив</param>
+        /// <returns>Максимальное значение среди всех средних значений строк массива</returns>
+        public static double MaxAverage(int[][] arr)
+        {
+            var (MaxAv, sum) = (0.0, 0.0);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum = 0;
+                for (int j = 0; j < arr[i].Length; j++)
+                    sum += arr[i][j];
+                if (sum / arr[i].Length > MaxAv)
+                    MaxAv = sum / arr[i].Length;
+            }
+            return MaxAv;
+        }
         static void Main(string[] args)
         {
         }

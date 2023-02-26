@@ -30,5 +30,11 @@ namespace TestHomeWork2
             Assert.That(MaxSumRow(new int[,] { { 1, 2 }, { 3, 4 } }), Is.EqualTo((1, 7)));
             Assert.That(MaxSumRow(new int[,] { }), Is.EqualTo((0, 0)));
         }
+        [Test]
+        public void MaxAverageTest()
+        {
+            Assert.That(MaxAverage(new int[][] { new int[] { 1, 2 } , new int[] { 3, 4 } }), Is.EqualTo(3.5));
+            Assert.That(MaxAverage(new int[][] { }), Is.EqualTo(0));
+        }
     }
 }
