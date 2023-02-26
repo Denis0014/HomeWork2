@@ -61,7 +61,13 @@ namespace HomeWork2
         /// <param name="arr">Исходный массив</param>
         /// <returns>Массив с такимже или меньшим на 1 количество элементов</returns>
         public static int[] FlipHalves(int[] arr) => arr[(arr.Length / 2)..arr.Length].Concat(arr[0..(arr.Length / 2)]).ToArray();
-
+        /// <summary>
+        /// Возвращает матрицу, элементы которой определяются в следующем порядке: <br></br>
+        /// первая строка слева направо, вторая строка справа налево, <br></br>
+        /// третья строка слева направо, четвертая строка справа налево и т. д.
+        /// </summary>
+        /// <param name="matr">Исходая матрица</param>
+        /// <returns>Матрицу</returns>
         public static int[,] Spliffing(int[,] matr)
         {
             int[,] result = new int[matr.GetLength(0), matr.GetLength(1)];
@@ -73,6 +79,27 @@ namespace HomeWork2
                     else
                         result[i, j] = matr[i, matr.GetLength(1) - j - 1];
             return result;
+        }
+        /// <summary>
+        /// Возвращает номер ее строки с наибольшей суммой элементов, а также значение наибольшей суммы матрицы
+        /// </summary>
+        /// <param name="matr">Исходная матрица</param>
+        /// <returns>2 целых числа</returns>
+        public static (int MaxRow, int MaxSum) MaxSumRow(int[,] matr) 
+        {
+            var (MaxRow, MaxSum, sum) = (0, 0, 0);
+            for (int i = 0; i < matr.GetLength(0); i++)
+            {
+                sum = 0;
+                for (int j = 0; j < matr.GetLength(1); j++)
+                    sum += matr[i, j];
+                if (sum > MaxSum)
+                {
+                    MaxRow = i;
+                    MaxSum = sum;
+                }
+            }
+            return (MaxRow, MaxSum);
         }
         static void Main(string[] args)
         {

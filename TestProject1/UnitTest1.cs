@@ -24,5 +24,11 @@ namespace TestHomeWork2
             Assert.That(Spliffing(new int[,] { { 1, 2 }, { 3, 4 } }), Is.EqualTo(new int[,] { { 1, 2 }, { 4, 3 } }));
             Assert.That(Spliffing(new int[,] { }), Is.EqualTo(new int[,] { }));
         }
+        [Test]
+        public void MaxSumRowTest()
+        {
+            Assert.That(MaxSumRow(new int[,] { { 1, 2 }, { 3, 4 } }), Is.EqualTo((1, 7)));
+            Assert.That(MaxSumRow(new int[,] { }), Is.EqualTo((0, 0)));
+        }
     }
 }
