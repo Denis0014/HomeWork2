@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace HomeWork2
 {
@@ -60,6 +61,19 @@ namespace HomeWork2
         /// <param name="arr">Исходный массив</param>
         /// <returns>Массив с такимже или меньшим на 1 количество элементов</returns>
         public static int[] FlipHalves(int[] arr) => arr[(arr.Length / 2)..arr.Length].Concat(arr[0..(arr.Length / 2)]).ToArray();
+
+        public static int[,] Spliffing(int[,] matr)
+        {
+            int[,] result = new int[matr.GetLength(0), matr.GetLength(1)];
+            int c = 0;
+            for (int i = 0; i < matr.GetLength(0); i++)
+                for (int j = 0; j < matr.GetLength(1); j++)
+                    if (i % 2 == 0)
+                        result[i, j] = matr[i, j];
+                    else
+                        result[i, j] = matr[i, matr.GetLength(1) - j - 1];
+            return result;
+        }
         static void Main(string[] args)
         {
         }
