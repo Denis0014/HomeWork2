@@ -54,6 +54,12 @@ namespace HomeWork2
         /// <param name="num">Исходное число</param>
         /// <returns>Число чётное?</returns>
         public static bool Even(int num) => num % 2 == 0;
+        /// <summary>
+        /// Возвращает массив, в котором первая и вторая половина поменяны местами
+        /// </summary>
+        /// <param name="arr">Исходный массив</param>
+        /// <returns>Массив с такимже или меньшим на 1 количество элементов</returns>
+        public static int[] FlipHalves(int[] arr) => arr[(arr.Length / 2)..arr.Length].Concat(arr[0..(arr.Length / 2)]).ToArray();
         static void Main(string[] args)
         {
         }
